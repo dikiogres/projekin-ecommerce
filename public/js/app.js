@@ -5454,9 +5454,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      itemCount: ''
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var _this = this;
+
+    this.$root.$on('changeInCart', function (item) {
+      _this.itemCount = item;
+    });
   }
 });
 
@@ -28191,24 +28202,17 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        { staticClass: "btn btn-warning btn sm", attrs: { href: "/home" } },
+        [_vm._v("\n            Cart " + _vm._s(_vm.itemCount) + "\n        ")]
+      ),
+    ]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("li", { staticClass: "nav-item" }, [
-        _c(
-          "a",
-          { staticClass: "btn btn-warning btn sm", attrs: { href: "/home" } },
-          [_vm._v("Cart")]
-        ),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

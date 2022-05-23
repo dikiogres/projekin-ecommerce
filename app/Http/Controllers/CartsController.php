@@ -36,12 +36,6 @@ class CartsController extends Controller
      */
     public function store(Request $request)
     {
-
-        //check user cart items.
-        $userItems = Cart::where('userid', auth()->user()->id)->count();
-
-        dd($userItems);
-
         //getting product details
         $product = Product::where('id', $request->get('product_id'))->first();
 
@@ -67,10 +61,12 @@ class CartsController extends Controller
             ->increment('quantity');         
         }
 
+        //check user cart items.
+
         if($cart){
             return[
                 'message'=>'Cart Updated',
-                'items' => $userItems
+                'items' => Cart::where('userid', auth()->user()->id)->sum('quantity')
             ];
         }
     }
