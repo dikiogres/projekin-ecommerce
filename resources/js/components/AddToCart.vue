@@ -11,14 +11,15 @@
 <script>
     export default {
         data(){
-            return {
-                
-            }
+
         },
         props:['productId', 'userId'],
         method:{
             addProductToCart(){
-                alert(this.productId)
+                if(this.userId == 0){
+                    this.$toastr.e('You Need to Login,  to add this product in Cart');
+                    return;
+                }
             }
         },
         mounted() {
