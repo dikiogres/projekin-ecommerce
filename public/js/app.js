@@ -28245,7 +28245,7 @@ var render = function () {
     _c("li", { staticClass: "nav-item" }, [
       _c(
         "a",
-        { staticClass: "btn btn-warning btn sm", attrs: { href: "/home" } },
+        { staticClass: "btn btn-warning btn sm", attrs: { href: "/checkout" } },
         [_vm._v("\n            Cart " + _vm._s(_vm.itemCount) + "\n        ")]
       ),
     ]),
