@@ -128,7 +128,13 @@ class CartsController extends Controller
 
         $cartItems = Cart::where('userid', auth()->user()->id)->get();
 
-        dd($cartItems);
+        if(isset($cartItems)){
+            foreach($cartItems as $cartItem){
+                var_dump($cartItem->product_id);
+            }
+        }
+
+
 
         return 123;
     }
