@@ -36,11 +36,19 @@ class CartsController extends Controller
      */
     public function store(Request $request)
     {
+
+        //check user cart items.
+        $userItems = Cart::where('userid', auth()->user()->id)->count();
+
+        dd($userItems);
+
         //getting product details
-        $product = Product::find($request->get('product_id'))->first();
+        $product = Product::where('id', $request->get('product_id'))->first();
 
         $productFoundInCart = Cart::where('product_id',
             $request->get('product_id'))->pluck('id');
+
+        //check user cart items
 
         if($productFoundInCart->isEmpty()){
             //adding product in cart.
@@ -60,10 +68,11 @@ class CartsController extends Controller
         }
 
         if($cart){
-            return['message'=>'Cart Updated'];
+            return[
+                'message'=>'Cart Updated',
+                'items' => $userItems
+            ];
         }
-
-        dd($product);
     }
 
     /**

@@ -30,7 +30,7 @@
                     'product_id': this.productId
                 });
 
-                console.log(response.data);
+                this.$root.$emit('changeInCart', response.data.items);
             }
         },
         mounted() {
