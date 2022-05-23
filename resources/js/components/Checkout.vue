@@ -157,6 +157,7 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
+                                <hr>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <button type="submit" class="btn btn-primary btn-submit-fix" v-on:click.prevent="getUserAddress()">
@@ -264,6 +265,7 @@
                         'cvv':this.cvv,
                         'cardNumber':this.cardNumber,
                         'amount': this.items.totalAmount,
+                        'order' : this.items,
                     });
                     console.log(response.data);
                 }

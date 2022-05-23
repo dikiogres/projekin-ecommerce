@@ -174,6 +174,21 @@ class CartsController extends Controller
 
         $amount = $request->get('amount');
 
+        $orders = $request->get('order');
+        $ordersArray = [];
+
+        // Getting Order Details.
+
+        foreach($orders as $order)
+        {
+            if($order['id'])
+            {
+                $ordersArray[$order['id']]['order_id'] = $order['id'];
+                $ordersArray[$order['id']]['quantity'] = $order['quantity'];
+            }
+        }
+
+
         //payment process
 
         $stripe = Stripe::make(env('STRIPE_KEY'));
@@ -226,6 +241,45 @@ class CartsController extends Controller
             'amount' => $amount,
             'description' => 'Payment for order',
         ]);
+
+        if($charge['status'] == "succeeded")
+        {
+            // Capture the details from stripe.
+
+            $customerIdStripe = $charge['id'];
+            $amountRec = $charge['amount'];
+            $client_id = auth()->user()->id;
+
+            $processingDetails = Processing::create([
+                'client_id' => $client_id,
+                'client_name' => $firstName.' '.$lastName,
+                'client_address' => json_encode([
+                                        'line1' => $address,
+                                        'postal_code' => $zipCode,
+                                        'city' => $city,
+                                        'state' => $state,
+                                        'country' => $country,
+                                    ]),
+                'order_details' => json_encode($ordersArray),
+                'amount' => $amount,
+                'currency' => $charge['currency'],
+            ]);
+
+
+            if($processingDetails)
+            {
+                // Clear the cart after payment success.
+
+                Cart:: where('user_id', $client_id)->delete();
+
+                return ['success'=> 'Order completed successfully'];
+            }
+            
+        }
+        else
+        {
+            return ['error'=> 'Order failed contact support'];
+        }
 
         dd($charge);
 

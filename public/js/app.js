@@ -5752,6 +5752,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5827,7 +5828,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   'expirationMonth': _this2.expirationMonth,
                   'expirationYear': _this2.expirationYear,
                   'cvv': _this2.cvv,
-                  'cardNumber': _this2.cardNumber
+                  'cardNumber': _this2.cardNumber,
+                  'amount': _this2.items.totalAmount,
+                  'order': _this2.items
                 });
 
               case 3:
@@ -29347,6 +29350,8 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _vm._m(12),
+                      _vm._v(" "),
+                      _c("hr"),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
                         _c(
