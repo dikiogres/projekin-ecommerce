@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart;
 
 class CartsController extends Controller
 {
@@ -38,7 +39,29 @@ class CartsController extends Controller
         //getting product details
         $product = Product::find($request->get('product_id'))->first();
 
-        //adding product in cart.
+        $productFoundInCart = Cart::where('product_id',
+            $request->get('product_id'))->pluck('id');
+
+        if($productFoundInCart->isEmpty()){
+            //adding product in cart.
+
+            $cart = Cart::create([
+                'product_id' => $product->id,
+                'quantity' => 1,
+                'price' => $product->sale_price,
+                'user_id' => auth()->user()->id,
+            ]);
+        }
+        else{
+            //incrementing product quantity
+
+            $cart = Cart::where(['product_id', $request->get('product_id')])
+            ->increment('quantity');         
+        }
+
+        if($cart){
+            return['message'=>'Cart Updated'];
+        }
 
         dd($product);
     }

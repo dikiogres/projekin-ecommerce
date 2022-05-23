@@ -26,9 +26,9 @@
 
                 //if user logged in then add item to cart.
 
-                let  response =  await axios.post('/cart', {
+                let response =  await axios.post('/cart', {
                     'product_id': this.productId
-                })
+                });
 
                 console.log(response.data);
             }
