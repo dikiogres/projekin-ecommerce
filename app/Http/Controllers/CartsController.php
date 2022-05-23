@@ -153,4 +153,8 @@ class CartsController extends Controller
         return response()->json($finalData);
 
     }
+
+    public function processPayment(Request $request){
+        dd($request->all());
+    }
 }

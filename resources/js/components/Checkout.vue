@@ -246,9 +246,25 @@
                 this.items = response.data;
                 console.log(this.items);
             },
-            getUserAddress(){
+            async getUserAddress(){
                 if(this.firstName != '' && this.address != '' && this.cardNumber && this.cvv){
-                    //process payment 
+                    let response =  await axios.post('/process/user/payment', {
+                        'firstName':this.firstName,
+                        'lastName':this.lastName,
+                        'address':this.address,
+                        'city':this.city,
+                        'state':this.state,
+                        'zipCode':this.zipCode,
+                        'email':this.email,
+                        'phone':this.phone,
+                        'country':this.country,
+                        'cardType': this.cardType,
+                        'expirationMonth':this.expirationMonth,
+                        'expirationYear':this.expirationYear,
+                        'cvv':this.cvv,
+                        'cardNumber':this.cardNumber
+                    });
+                    console.log(response.data);
                 }
                 else{
                      this.$toastr.e('User info incomplete');
