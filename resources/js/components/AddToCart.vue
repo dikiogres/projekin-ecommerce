@@ -1,7 +1,8 @@
 <template>
-    <div class="container">
-        <hr>
-        <button class="btn btn-warning">
+    <div>
+         <hr>
+        <button class="btn btn-warning text-center" 
+            v-on:click.prevent="addProductToCart()">
             Add To Cart
         </button>
     </div>
@@ -9,6 +10,17 @@
 
 <script>
     export default {
+        data(){
+            return {
+                
+            }
+        },
+        props:['productId', 'userId'],
+        method:{
+            addProductToCart(){
+                alert(this.productId)
+            }
+        },
         mounted() {
             console.log('Component mounted.')
         }

@@ -5377,7 +5377,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {},
+  props: ['productId', 'userId'],
+  method: {
+    addProductToCart: function addProductToCart() {
+      alert(this.productId);
+    }
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -27993,22 +28001,25 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("hr"),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-warning text-center",
+        on: {
+          click: function ($event) {
+            $event.preventDefault()
+            return _vm.addProductToCart()
+          },
+        },
+      },
+      [_vm._v(" \n        Add To Cart\n    ")]
+    ),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("hr"),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-warning" }, [
-        _vm._v("\n        Add To Cart\n    "),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
