@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use Stripe;
 
 class CartsController extends Controller
 {
@@ -171,8 +172,62 @@ class CartsController extends Controller
         $cvv = $request->get('cvv');
         $cardNumber = $request->get('cardNumber');
 
+        $amount = $request->get('amount');
+
         //payment process
 
+        $stripe = Stripe::make(env('STRIPE_KEY'));
+
+        $token = $stripe->takens()->create([
+            'card' => [
+                'number' => $cardNumber,
+                'exp_month' => $expirationMonth,
+                'exp_year' => $expirationYear,
+                'cvc'=> $cvv,
+            ]]
+        );
+
+        if(!$token['id']){
+            session()->flush('error', 'Stripe token generation failed');
+            return;
+        }
+
+        //create a customer stripe 
+
+        $customer = $stripe->customer()->create([
+            'name' => $firstName.' '.$lastName,
+            'email' => $email,
+            'phone' => $phone,
+            'address' => [
+                'line1' => $address,
+                'postal_code' => $zipCode,
+                'city' => $city,
+                'state' => $state,
+                'country' => $country,
+            ],
+            'shipping' => [
+                'name' => $firstName.' '.$lastName,
+                'address' => [
+                    'line1' => $address,
+                    'postal_code' => $zipCode,
+                    'city' => $city,
+                    'state' => $state,
+                    'country' => $country,
+                ],
+            ],
+            'source' => $token['id'],
+        ]);
+
+        //code for charging the client in stripe.
+
+        $charge = $stripe->charges()->create([
+            'customer' => $customer['id'],
+            'currency' => 'USD',
+            'amount' => $amount,
+            'description' => 'Payment for order',
+        ]);
+
+        dd($charge);
 
     }
 }

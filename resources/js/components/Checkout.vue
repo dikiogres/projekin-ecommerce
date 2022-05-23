@@ -262,7 +262,8 @@
                         'expirationMonth':this.expirationMonth,
                         'expirationYear':this.expirationYear,
                         'cvv':this.cvv,
-                        'cardNumber':this.cardNumber
+                        'cardNumber':this.cardNumber,
+                        'amount': items.totalAmount,
                     });
                     console.log(response.data);
                 }
