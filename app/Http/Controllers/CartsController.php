@@ -121,4 +121,15 @@ class CartsController extends Controller
     {
         //
     }
+    /**
+
+     */
+    public function getCartItemsForCheckout(){
+
+        $cartItems = Cart::where('userid', auth()->user()->id)->get();
+
+        dd($cartItems);
+
+        return 123;
+    }
 }

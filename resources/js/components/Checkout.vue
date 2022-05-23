@@ -85,10 +85,14 @@
             }
         },
         methods:{
+            async getCartItems(){
+                let response =  await axios.get('/checkout/get/items');
 
+                console.log(response);
+            }
         },
         created(){
-
+            this.getCartItems();
         }
     }
 </script>
