@@ -130,6 +130,8 @@ class CartsController extends Controller
 
         $finalData = [];
 
+        $amount = 0;
+
         if(isset($cartItems)){
             foreach($cartItems as $cartItem){
                 if($cartItem->product){
@@ -140,6 +142,8 @@ class CartsController extends Controller
                             $finalData[$cartItem->product_id]['quantity'] = $cartItem->quantity;
                             $finalData[$cartItem->product_id]['sale_price'] = $cartItem->price;
                             $finalData[$cartItem->product_id]['total'] = $cartItem->price * $cartItem->quantity;
+                            $amount += $cartItem->price * $cartItem->quantity;
+                            $finalData['totalAmount'] = $amount;
                         }
                     }
                 }

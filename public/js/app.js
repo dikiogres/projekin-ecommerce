@@ -5599,23 +5599,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {};
+    return {
+      items: []
+    };
   },
   methods: {
     getCartItems: function getCartItems() {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var response;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -5627,9 +5620,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 response = _context.sent;
-                console.log(response);
+                _this.items = response.data;
+                console.log(_this.items);
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -28480,207 +28474,189 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "content" }, [
+      _c("div", { staticClass: "container checkoutBox" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-8 col-md-8 col-sm-7 col-xs-12" }, [
+            _c(
+              "div",
+              { staticClass: "box" },
+              [
+                _c("h3", { staticClass: "box-title" }, [
+                  _vm._v("Products in your cart"),
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.items, function (item) {
+                  return _c(
+                    "div",
+                    { key: item.id, staticClass: "plan-selection" },
+                    [
+                      item.name
+                        ? _c("div", { staticClass: "plan-data" }, [
+                            _c("input", {
+                              staticClass: "with-font",
+                              attrs: {
+                                id: "question1",
+                                name: "question",
+                                type: "radio",
+                                value: "sel",
+                              },
+                            }),
+                            _vm._v(" "),
+                            _c("label", { attrs: { for: "question1" } }, [
+                              _vm._v(_vm._s(item.name)),
+                            ]),
+                            _vm._v(" "),
+                            _c("p", { staticClass: "plan-text" }, [
+                              _vm._v(
+                                "\n                                    Quantity: " +
+                                  _vm._s(item.quantity) +
+                                  "\n                                "
+                              ),
+                            ]),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "plan-price" }, [
+                              _vm._v(
+                                "\n                                    Price: " +
+                                  _vm._s(item.sale_price) +
+                                  "\n                                "
+                              ),
+                            ]),
+                          ])
+                        : _vm._e(),
+                    ]
+                  )
+                }),
+              ],
+              2
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-5 col-xs-12" }, [
+            _c(
+              "div",
+              { staticClass: "widget" },
+              [
+                _c("h4", { staticClass: "widget-title" }, [
+                  _vm._v("Order Summary"),
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.items, function (summaryItem) {
+                  return _c(
+                    "div",
+                    { key: summaryItem.id, staticClass: "summary-block" },
+                    [
+                      summaryItem.name
+                        ? _c("div", { staticClass: "summary-content" }, [
+                            _c("div", { staticClass: "summary-head" }, [
+                              _c("h5", { staticClass: "summary-title" }, [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(summaryItem.name) +
+                                    "\n                                "
+                                ),
+                              ]),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "summary-price" }, [
+                              _c("p", { staticClass: "summary-text" }, [
+                                _vm._v(
+                                  "\n                                        $  " +
+                                    _vm._s(summaryItem.total) +
+                                    "\n                                    "
+                                ),
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "summary-small-text pull-right",
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Q  " +
+                                      _vm._s(summaryItem.quantity) +
+                                      " x \n                                        P  " +
+                                      _vm._s(summaryItem.sale_price) +
+                                      "\n                                        "
+                                  ),
+                                ]
+                              ),
+                            ]),
+                          ])
+                        : _vm._e(),
+                    ]
+                  )
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "summary-block" }, [
+                  _c("div", { staticClass: "summary-content" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "summary-price" }, [
+                      _c("p", { staticClass: "summary-text" }, [
+                        _vm._v(_vm._s(_vm.items.totalAmount)),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "summary-small-text pull-right",
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                  ]),
+                ]),
+              ],
+              2
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container checkoutBox" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-8 col-md-8 col-sm-7 col-xs-12" }, [
-              _c("div", { staticClass: "box" }, [
-                _c("h3", { staticClass: "box-title" }, [
-                  _vm._v("Select Your Hosting Plan"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "plan-selection" }, [
-                  _c("div", { staticClass: "plan-data" }, [
-                    _c("input", {
-                      staticClass: "with-font",
-                      attrs: {
-                        id: "question1",
-                        name: "question",
-                        type: "radio",
-                        value: "sel",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "question1" } }, [
-                      _vm._v("Personal"),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "plan-text" }, [
-                      _vm._v(
-                        "\n                                    1 install | 25K visits/month | 10 GB local storage"
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "plan-price" }, [
-                      _vm._v("$29 / mo"),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "plan-selection" }, [
-                  _c("div", { staticClass: "plan-data" }, [
-                    _c("input", {
-                      staticClass: "with-font",
-                      attrs: {
-                        id: "question2",
-                        name: "question",
-                        type: "radio",
-                        value: "sel",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "question2" } }, [
-                      _vm._v("Profesional"),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "plan-text" }, [
-                      _vm._v(
-                        "\n                                    Up to 10 installs | 100K visits/month | 20 GB local storage"
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "plan-price" }, [
-                      _vm._v("$99 / mo"),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "plan-selection" }, [
-                  _c("div", { staticClass: "plan-data" }, [
-                    _c("input", {
-                      staticClass: "with-font",
-                      attrs: {
-                        id: "question3",
-                        name: "question",
-                        type: "radio",
-                        value: "sel",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("label", { attrs: { for: "question3" } }, [
-                      _vm._v("Business"),
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "plan-text" }, [
-                      _vm._v(
-                        "Up to 25 installs | 400K visits/month | 30 GB local storage"
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "plan-price" }, [
-                      _vm._v("$249 / mo"),
-                    ]),
-                  ]),
-                ]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-5 col-xs-12" }, [
-              _c("div", { staticClass: "widget" }, [
-                _c("h4", { staticClass: "widget-title" }, [
-                  _vm._v("Order Summary"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "summary-block" }, [
-                  _c("div", { staticClass: "summary-content" }, [
-                    _c("div", { staticClass: "summary-head" }, [
-                      _c("h5", { staticClass: "summary-title" }, [
-                        _vm._v("Personal"),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "summary-price" }, [
-                      _c("p", { staticClass: "summary-text" }, [
-                        _vm._v("$29 / mo"),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "summary-small-text pull-right" },
-                        [_vm._v("1 month")]
-                      ),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "summary-block" }, [
-                  _c("div", { staticClass: "summary-content" }, [
-                    _c("div", { staticClass: "summary-head" }, [
-                      _c("h5", { staticClass: "summary-title" }, [
-                        _vm._v(
-                          "Website Security \n                                    Essential"
-                        ),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "summary-price" }, [
-                      _c("p", { staticClass: "summary-text" }, [
-                        _vm._v("$229 / mo"),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "summary-small-text pull-right" },
-                        [_vm._v("1 month")]
-                      ),
-                    ]),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "summary-block" }, [
-                  _c("div", { staticClass: "summary-content" }, [
-                    _c("div", { staticClass: "summary-head" }, [
-                      _c("h5", { staticClass: "summary-title" }, [
-                        _vm._v("Total"),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "summary-price" }, [
-                      _c("p", { staticClass: "summary-text" }, [
-                        _vm._v("$258 / mo"),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "summary-small-text pull-right" },
-                        [_vm._v("1 month")]
-                      ),
-                    ]),
-                  ]),
-                ]),
-              ]),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "col-lg-12 col-md-12 col-sm-12 col-xs-12  text-center mt20",
-              },
-              [
-                _vm._v("\n              Created for "),
-                _c(
-                  "a",
-                  {
-                    attrs: { href: "https://goo.gl/XwHgxp", target: "_blank" },
-                  },
-                  [_vm._v("easetemplate")]
-                ),
-              ]
-            ),
-          ]),
-        ]),
-      ]),
+    return _c("div", { staticClass: "summary-head" }, [
+      _c("h5", { staticClass: "summary-title" }, [_vm._v("Total")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-right" }, [
+      _c("hr"),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-warning" }, [_vm._v("Place Order")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-lg-12 col-md-12 col-sm-12 col-xs-12  text-center mt20",
+        },
+        [
+          _vm._v("\n              Created for "),
+          _c(
+            "a",
+            { attrs: { href: "https://goo.gl/XwHgxp", target: "_blank" } },
+            [_vm._v("Projekin")]
+          ),
+        ]
+      ),
     ])
   },
 ]
