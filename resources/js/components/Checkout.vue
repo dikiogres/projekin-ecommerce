@@ -37,45 +37,45 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-xs-12">
                                         <strong>First Name:</strong>
-                                        <input type="text" name="first_name" class="form-control" value="" />
+                                        <input type="text" name="first_name" v-model="firstName" class="form-control" value="" />
                                     </div>
                                     <div class="span1"></div>
                                     <div class="col-md-6 col-xs-12">
                                         <strong>Last Name:</strong>
-                                        <input type="text" name="last_name" class="form-control" value="" />
+                                        <input type="text" name="last_name" v-model="lastName"  class="form-control" value="" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Address:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="address" class="form-control" value="" />
+                                        <input type="text" name="address" v-model="address" class="form-control" value="" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>City:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="city" class="form-control" value="" />
+                                        <input type="text" name="city" v-model="city"  class="form-control" value="" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>State:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="state" class="form-control" value="" />
+                                        <input type="text" name="state" v-model="state"  class="form-control" value="" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="zip_code" class="form-control" value="" />
+                                        <input type="text" name="zip_code" v-model="zipCode"  class="form-control" value="" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Phone Number:</strong></div>
-                                    <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" /></div>
+                                    <div class="col-md-12"><input type="text" v-model="phone"  name="phone_number" class="form-control" value="" /></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Email Address:</strong></div>
-                                    <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" /></div>
+                                    <div class="col-md-12"><input type="text" v-model="email" name="email_address" class="form-control" value="" /></div>
                                 </div>
                             </div>
                         </div>
@@ -218,6 +218,20 @@
         data(){
             return{
                 items: [],
+                firstName:'',
+                lastName:'',
+                address:'',
+                city:'',
+                state:'',
+                zipCode:'',
+                email:'',
+                phone:'',
+                country:'',
+                cardType: '',
+                expirationMonth:'',
+                expirationYear:'',
+                cvv:'',
+                cardNumber:''
             }
         },
         methods:{
@@ -225,6 +239,11 @@
                 let response =  await axios.get('/checkout/get/items');
                 this.items = response.data;
                 console.log(this.items);
+            },
+            getUserAddress(){
+                if(this.firstName != '' && this.address != ''){
+                    
+                }
             }
         },
         created(){
