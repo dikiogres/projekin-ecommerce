@@ -288,15 +288,9 @@
                                                         <li><i class="lni-star-filled"></i></li>
                                                     </ul>
                                                     <span class="regular-price">{{$product->sale_price}}</span>
-                                                    <span class="discount-price">{{$product->price}}</span>
-                                                    <hr>
-                                                    <button class="btn btn-warning">
-                                                        Add To Cart
-                                                    </button>  
+                                                    <span class="discount-price">{{$product->price}}</span>  
 
-                                                    <add-to-cart-button product-id="{{$product->id}}"
-                                                        user-id="{{auth()->user()->id ?? 0}}"
-                                                    />
+                                                    <add-to-cart-button/>
                                                 </div>
                                             
                                             </div> <!-- single product items -->

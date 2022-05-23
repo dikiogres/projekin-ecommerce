@@ -1,6 +1,9 @@
 <template>
     <div class="container">
-
+        <hr>
+        <button class="btn btn-warning">
+            Add To Cart
+        </button>
     </div>
 </template>
 
