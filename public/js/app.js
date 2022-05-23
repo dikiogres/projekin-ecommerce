@@ -5799,10 +5799,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     getUserAddress: function getUserAddress() {
-      if (this.firstName != '' && this.address != '' && this.cardNumber && this.cvv) {//process payment 
-      } else {
-        this.$toastr.e('User info incomplete');
-      }
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(_this2.firstName != '' && _this2.address != '' && _this2.cardNumber && _this2.cvv)) {
+                  _context2.next = 7;
+                  break;
+                }
+
+                _context2.next = 3;
+                return axios.post('/process/user/payment', {
+                  'firstName': _this2.firstName,
+                  'lastName': _this2.lastName,
+                  'address': _this2.address,
+                  'city': _this2.city,
+                  'state': _this2.state,
+                  'zipCode': _this2.zipCode,
+                  'email': _this2.email,
+                  'phone': _this2.phone,
+                  'country': _this2.country,
+                  'cardType': _this2.cardType,
+                  'expirationMonth': _this2.expirationMonth,
+                  'expirationYear': _this2.expirationYear,
+                  'cvv': _this2.cvv,
+                  'cardNumber': _this2.cardNumber
+                });
+
+              case 3:
+                response = _context2.sent;
+                console.log(response.data);
+                _context2.next = 8;
+                break;
+
+              case 7:
+                _this2.$toastr.e('User info incomplete');
+
+              case 8:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   created: function created() {
