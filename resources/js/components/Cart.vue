@@ -20,6 +20,15 @@
             this.$root.$on('changeInCart', (item)=> {
                 this.itemCount = item;
             });
+        },
+        methods:{
+            async getCartItemsOnPageLoad(){
+                let response =  await axios.post('/cart');
+                this.itemCount = response.data.items;
+            }
+        },
+        create(){
+            this.getCartItemsOnPageLoad();
         }
     }
 </script>

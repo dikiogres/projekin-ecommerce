@@ -11,7 +11,9 @@
 <script>
     export default {
         data(){
-
+            return{
+                
+            }
         },
         props:['productId', 'userId'],
         method:{

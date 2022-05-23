@@ -36,6 +36,12 @@ class CartsController extends Controller
      */
     public function store(Request $request)
     {
+        if(!$request->get('product_id')){
+            return[
+                'message'=>'Cart items returned',
+                'items' => Cart::where('userid', auth()->user()->id)->sum('quantity')
+            ];
+        }
         //getting product details
         $product = Product::where('id', $request->get('product_id'))->first();
 

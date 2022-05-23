@@ -66,7 +66,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg">
+                        <nav class="navbar navbar-fixed-top navbar-expand-lg">
                             <a class="navbar-brand" href="index.html">
                                 <img src="assets/images/logo.png" alt="Logo">
                             </a> <!-- Logo -->
@@ -153,6 +153,12 @@
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
     @yield('scripts')
+
+    <script>
+        window.onbeforeunload = function() {
+            window.scrollTo(0,0);
+        }
+    </script>
 
 </body>
 
