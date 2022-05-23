@@ -131,22 +131,22 @@ class CartsController extends Controller
         $finalData = [];
 
         if(isset($cartItems)){
-            echo"<pre>";
             foreach($cartItems as $cartItem){
                 if($cartItem->product){
-                    $finalData[$cartItem->product_id]['name'] = '';
-                    $finalData[$cartItem->product_id]['sale_price'] = $cartItem->sale_price;
-                    $finalData[$cartItem->product_id]['total'] = $cartItem->sale_price * $cartItem->quantity;
-    
-                    var_dump($cartItem->product);
+                    foreach($cartItem->product as $cartProduct){
+                        if($cartProduct->id == $cartItem->product_id){
+                            $finalData[$cartItem->product_id]['id'] = $cartProduct->id;
+                            $finalData[$cartItem->product_id]['name'] = $cartProduct->name;
+                            $finalData[$cartItem->product_id]['quantity'] = $cartItem->quantity;
+                            $finalData[$cartItem->product_id]['sale_price'] = $cartItem->price;
+                            $finalData[$cartItem->product_id]['total'] = $cartItem->price * $cartItem->quantity;
+                        }
+                    }
                 }
-
-
             }
         }
 
+        return response()->json($finalData);
 
-
-        return 123;
     }
 }

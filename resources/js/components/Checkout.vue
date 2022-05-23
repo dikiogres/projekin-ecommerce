@@ -81,14 +81,14 @@
     export default{
         data(){
             return{
-
+                items: [],
             }
         },
         methods:{
             async getCartItems(){
                 let response =  await axios.get('/checkout/get/items');
-
-                console.log(response);
+                this.items = response.data;
+                console.log(this.items);
             }
         },
         created(){
