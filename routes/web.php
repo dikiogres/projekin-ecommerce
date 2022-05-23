@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Https\Controller\ProductsController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@ use App\Https\Controller\ProductsController;
 |
 */
 
-Route::get('/', [ProductsController::class, 'index'] );
+Route::get('/', [ProductsController::class, 'index']);
 
 Auth::routes();
 
