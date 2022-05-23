@@ -18,14 +18,14 @@
                                 </span>
                             </div>
                         </div>
-                        <div class=card">
+                         <div>
                         <!--SHIPPING METHOD-->
                         <div class="panel panel-info">
-                            <div class="panel-heading">Address</div>
                             <div class="panel-body">
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <h4>Shipping Address</h4>
+                                        <br>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -80,9 +80,11 @@
                             </div>
                         </div>
                         <!--SHIPPING METHOD END-->
+                        <hr>
                         <!--CREDIT CART PAYMENT-->
                         <div class="panel panel-info">
-                            <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
+                            <h4>Secure Payment</h4>
+                            <br>
                             <div class="panel-body">
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Card Type:</strong></div>
