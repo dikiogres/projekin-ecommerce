@@ -5599,6 +5599,151 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -28528,6 +28673,12 @@ var render = function () {
                     ]
                   )
                 }),
+                _vm._v(" "),
+                _vm._v('">\n                    '),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1),
               ],
               2
             ),
@@ -28592,7 +28743,7 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "summary-block" }, [
                   _c("div", { staticClass: "summary-content" }, [
-                    _vm._m(0),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c("div", { staticClass: "summary-price" }, [
                       _c("p", { staticClass: "summary-text" }, [
@@ -28604,7 +28755,7 @@ var render = function () {
                       }),
                     ]),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _vm._m(3),
                   ]),
                 ]),
               ],
@@ -28613,12 +28764,304 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(4),
       ]),
     ]),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel panel-info" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Address")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("h4", [_vm._v("Shipping Address")]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Country:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "country", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-6 col-xs-12" }, [
+            _c("strong", [_vm._v("First Name:")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "first_name", value: "" },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "span1" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-6 col-xs-12" }, [
+            _c("strong", [_vm._v("Last Name:")]),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "last_name", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Address:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "address", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("City:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "city", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("State:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "state", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Zip / Postal Code:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "zip_code", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Phone Number:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "phone_number", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Email Address:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "email_address", value: "" },
+            }),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel panel-info" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _c("span", [_c("i", { staticClass: "glyphicon glyphicon-lock" })]),
+        _vm._v(" Secure Payment"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Card Type:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "select",
+              {
+                staticClass: "form-control",
+                attrs: { id: "CreditCardType", name: "CreditCardType" },
+              },
+              [
+                _c("option", { attrs: { value: "5" } }, [_vm._v("Visa")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "6" } }, [_vm._v("MasterCard")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "7" } }, [
+                  _vm._v("American Express"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "8" } }, [_vm._v("Discover")]),
+              ]
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Credit Card Number:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "car_number", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Card CVV:")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "text", name: "car_code", value: "" },
+            }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("strong", [_vm._v("Expiration Date")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" }, [
+            _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Month")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "01" } }, [_vm._v("01")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "02" } }, [_vm._v("02")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "03" } }, [_vm._v("03")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "04" } }, [_vm._v("04")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "05" } }, [_vm._v("05")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "06" } }, [_vm._v("06")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "07" } }, [_vm._v("07")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "08" } }, [_vm._v("08")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "09" } }, [_vm._v("09")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "10" } }, [_vm._v("10")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "11" } }, [_vm._v("11")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "12" } }, [_vm._v("12")]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6 col-xs-12" }, [
+            _c("select", { staticClass: "form-control", attrs: { name: "" } }, [
+              _c("option", { attrs: { value: "" } }, [_vm._v("Year")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2015" } }, [_vm._v("2015")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2016" } }, [_vm._v("2016")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2017" } }, [_vm._v("2017")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2018" } }, [_vm._v("2018")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2019" } }, [_vm._v("2019")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2020" } }, [_vm._v("2020")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2021" } }, [_vm._v("2021")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2022" } }, [_vm._v("2022")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2023" } }, [_vm._v("2023")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2024" } }, [_vm._v("2024")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "2025" } }, [_vm._v("2025")]),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("span", [_vm._v("Pay secure using your credit card.")]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("ul", { staticClass: "cards" }, [
+              _c("li", { staticClass: "visa hand" }, [_vm._v("Visa")]),
+              _vm._v(" "),
+              _c("li", { staticClass: "mastercard hand" }, [
+                _vm._v("MasterCard"),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "amex hand" }, [_vm._v("Amex")]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "clearfix" }),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("div", { staticClass: "col-md-6 col-sm-6 col-xs-12" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-submit-fix",
+                attrs: { type: "submit" },
+              },
+              [_vm._v("Place Order")]
+            ),
+          ]),
+        ]),
+      ]),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
