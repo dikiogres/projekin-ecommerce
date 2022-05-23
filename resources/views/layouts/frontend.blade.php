@@ -11,6 +11,8 @@
     
     <!--====== Title ======-->
     <title>Projekin</title>
+
+    @yield('styles')
     <script src="{{ asset('css/app.css') }}" defer></script>
     <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
@@ -39,7 +41,7 @@
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="assets/css/responsive.css">
   
-  @yield('styles')
+ 
 </head>
 
 
