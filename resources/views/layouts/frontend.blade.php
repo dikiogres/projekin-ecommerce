@@ -39,7 +39,7 @@
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="assets/css/responsive.css">
   
-  
+  @yield('styles')
 </head>
 
 
