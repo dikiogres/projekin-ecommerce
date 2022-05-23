@@ -271,6 +271,9 @@ class CartsController extends Controller
             {
                 // Clear the cart after payment success.
 
+                Cart:: where('user_id', $client_id)->delete();
+
+                return ['success'=> 'Order completed successfully'];
             }
             
         }
@@ -278,8 +281,6 @@ class CartsController extends Controller
         {
             return ['error'=> 'Order failed contact support'];
         }
-
-        dd($charge);
 
     }
 }
