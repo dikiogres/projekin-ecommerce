@@ -126,11 +126,22 @@ class CartsController extends Controller
      */
     public function getCartItemsForCheckout(){
 
-        $cartItems = Cart::where('userid', auth()->user()->id)->get();
+        $cartItems = Cart::with('product')->where('userid', auth()->user()->id)->get();
+
+        $finalData = [];
 
         if(isset($cartItems)){
+            echo"<pre>";
             foreach($cartItems as $cartItem){
-                var_dump($cartItem->product_id);
+                if($cartItem->product){
+                    $finalData[$cartItem->product_id]['name'] = '';
+                    $finalData[$cartItem->product_id]['sale_price'] = $cartItem->sale_price;
+                    $finalData[$cartItem->product_id]['total'] = $cartItem->sale_price * $cartItem->quantity;
+    
+                    var_dump($cartItem->product);
+                }
+
+
             }
         }
 
