@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Processing;
 use Stripe;
 
 class CartsController extends Controller
@@ -270,9 +271,6 @@ class CartsController extends Controller
             {
                 // Clear the cart after payment success.
 
-                Cart:: where('user_id', $client_id)->delete();
-
-                return ['success'=> 'Order completed successfully'];
             }
             
         }

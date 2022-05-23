@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('processings', function (Blueprint $table) {
-            $table->id();
-            $table->string('client_name');
-            $table->string('client_address');
-            $table->string('order_details');
-            $table->string('amount');
-            $table->string('currency');
-            $table->timestamps();
+        Schema::table('processings', function($table){
+            $table->integer('client_id')->after('client_name');
         });
+
     }
 
     /**
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('processings');
+        //
     }
 };
