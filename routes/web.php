@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +62,9 @@ Route::middleware([
 });
 
 Route::get('/', [IndexController::class, 'index']);
+
+// Cart Routes
+Route::get('cart/', [CartController::class, 'index']);
+
+// Wishlist Routes
+Route::get('wishlist/', [WishlistController::class, 'index']);
