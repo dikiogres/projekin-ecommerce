@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,11 +58,23 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('dashboard', compact('user'));
     })->name('dashboard');
 });
 
 Route::get('/', [IndexController::class, 'index']);
+
+Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');
+
+Route::get('/user/profile', [IndexController::class, 'userProfile'])->name('user.profile');
+
+Route::post('/user/profile/store', [IndexController::class, 'userProfileStore'])->name('user.profile.store');
+
+Route::get('/user/change/password', [IndexController::class, 'userChangePassword'])->name('user.change.password');
+
+Route::post('/user/update/password', [IndexController::class, 'userUpdateChangePassword'])->name('user.update.password');
 
 // Cart Routes
 Route::get('cart/', [CartController::class, 'index']);
