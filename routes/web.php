@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\CartsController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Frontend\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,47 @@ use App\Http\Controllers\CartsController;
 |
 */
 
-Route::get('/', [ProductsController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Auth::routes();
+// Admin Routes
+Route::middleware('admin:admin')->group(function(){
+    Route::get('admin/login', [AdminController::class, 'loginForm']);
+    Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
+});
 
-Route::post('/cart', [CartsController::class, 'store'])->name('cart');
+Route::middleware([
+    'auth:sanctum,admin',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.index');
+    })->name('dashboard')->middleware('auth:admin');
+});
 
-Route::get('/checkout', [CartsController::class, 'index'])->name('checkout');
+Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
-Route::get('/checkout/get/items', [CartsController::class, 'getCartItemsForCheckout']);
+Route::get('admin/profile', [AdminProfileController::class, 'adminProfile'])->name('admin.profile');
 
-Route::post('/process/user/payment', [CartsController::class, 'processPayment']);
+Route::get('admin/profile/edit', [AdminProfileController::class, 'adminProfileEdit'])->name('admin.profile.edit');
 
+Route::post('admin/profile/store', [AdminProfileController::class, 'adminProfileStore'])->name('admin.profile.store');
 
+Route::get('admin/change/password', [AdminProfileController::class, 'adminChangePassword'])->name('admin.change.password');
+
+Route::post('update/change/password', [AdminProfileController::class, 'adminUpdateChangePassword'])->name('update.change.password');
+
+// User Routes
+Route::middleware([
+    'auth:sanctum,web',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Route::get('/', [IndexController::class, 'index']);
