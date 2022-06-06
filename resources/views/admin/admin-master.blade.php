@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
+    <link rel="icon" href="{{ asset('backend/images/logo-dark.png') }}">
 
     <title>Projekin Admin - Dashboard</title>
 
@@ -61,6 +61,9 @@
 
     <!-- Sweet Alert App -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/cb05756b2d.js" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         $(function () {
