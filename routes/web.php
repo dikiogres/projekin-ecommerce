@@ -10,7 +10,6 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\CheckoutController;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
