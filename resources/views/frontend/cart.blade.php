@@ -2,6 +2,16 @@
 @section('content');
 
 <div class="body-content outer-top-xs">
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-inner">
+                <ul class="list-inline list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">Shopping Cart</li>
+                </ul>
+            </div>
+        </div>
+    </div>  
     <h3 class="container">
         My Cart
     </h3>
