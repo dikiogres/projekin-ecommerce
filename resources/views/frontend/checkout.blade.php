@@ -13,11 +13,13 @@
         </div>
     </div>
     <h3 class="container">
-        Checkout order
+        Checkout Order
     </h3>
     <div class="container" style="display: flex">
         <div class="card">
+            <header class="sec-head">
 
+            </header>
         </div>
     </div>
 </div>
