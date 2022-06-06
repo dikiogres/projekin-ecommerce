@@ -14,21 +14,21 @@
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i
                                             class="fa fa-map-marker fa-stack-1x fa-inverse"></i> </span> </div>
                                 <div class="media-body">
-                                    <p>ThemesGround, 789 Main rd, Anytown, CA 12345 USA</p>
+                                    <p>Perumdos Blok U ITS, 201 Sukolilo, Surabaya, CA 60711 IND</p>
                                 </div>
                             </li>
                             <li class="media">
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i
                                             class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                                 <div class="media-body">
-                                    <p>+(888) 123-4567<br>
-                                        +(888) 456-7890</p>
+                                    <p>+(62) 123-4567-7789<br>
+                                        +(62) 456-7890-9980</p>
                                 </div>
                             </li>
                             <li class="media">
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i
                                             class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                                <div class="media-body"> <span><a href="#">flipmart@themesground.com</a></span> </div>
+                                <div class="media-body"> <span><a href="#">projekin@ecommerce.com</a></span> </div>
                             </li>
                         </ul>
                     </div>
