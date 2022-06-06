@@ -43,7 +43,13 @@
                             <div>
                                 <form class="payment-form">
                                     <div class="card-number-form">
-                                        
+                                        <label>
+                                            Card Number
+                                        </label>
+                                        <div class="card-number-input error">
+                                            <input type="text"/>
+                                            <span class="card-block"></span>
+                                        </div>
                                     </div>
                                 </form>
                             </div>

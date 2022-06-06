@@ -130,3 +130,70 @@ li{
     justify-content: space-between;
     align-items: flex-end;
 }
+
+label{
+    color: #62646a;
+    font-weight: 600;
+}
+
+.card-number-input{
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: 3px;
+    flex-basis: 100%;
+    align-items: center;
+    height: 40px;
+    margin: 10px 14px 0 0;
+    width: 150px;
+}
+
+.error{
+    border-color: #FA1F29;
+}
+
+input{
+    writing-mode: horizontal-tb !important;   
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+    margin: 0em;
+}
+
+input[type="text" i] {
+    padding: 1px 2px;
+}
+
+.error-field input[type=text], .error-field input[type=number] {
+    color: #FA1F29;
+}
+
+.card-number-input input[type=text], input[type=number] {
+    font: 400 16px/24px 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #404145;
+    outline: none;
+    height: 40px;
+    padding-left: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+}
+
+.card-block{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background: white no-repeat;
+    border: none;
+    background-position-y: center;
+    margin-right: 2px;
+    background-image: none;
+}
