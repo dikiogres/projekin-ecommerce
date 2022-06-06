@@ -16,7 +16,7 @@
         Checkout order
     </h3>
     <div class="container" style="display: flex">
-        <div style="background-color: #fafafa">
+        <div class="card">
 
         </div>
     </div>
