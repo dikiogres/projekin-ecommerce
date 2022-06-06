@@ -115,7 +115,7 @@
                 <div class="line" style="margin: 0px;"></div>
                 <div style="padding: 16px">
                     <div>
-                        <h3 class="text-ringkasan">Ringkasan belanja</h3>
+                        <h3 class="text-ringkasan">Shopping Summary</h3>
                         <div style="display: flex; width: 100%">
                             <p class="total-price">Total Price (x product)</p>
                             <p class="price">Rp36.000</p>
@@ -128,7 +128,7 @@
                     </div>
                     <div>
                         <button class="buy-btn">
-                            <span>Beli (1)</span>
+                            <span>Checkout</span>
                         </button>
                     </div>
                 </div>
