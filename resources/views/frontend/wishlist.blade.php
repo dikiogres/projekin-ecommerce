@@ -1,92 +1,52 @@
 @extends('frontend.main-master')
 @section('content');
 
-<div class="breadcrumb">
-	<div class="container">
-		<div class="breadcrumb-inner">
-			<ul class="list-inline list-unstyled">
-				<li><a href="home.html">Home</a></li>
-				<li class='active'>Wishlist</li>
-			</ul>
-		</div><!-- /.breadcrumb-inner -->
-	</div><!-- /.container -->
-</div><!-- /.breadcrumb -->
-
-<div class="body-content">
-	<div class="container">
-		<div class="my-wishlist-page" style="margin-bottom: 100px;">
-			<div class="row">
-				<div class="col-md-12 my-wishlist">
-	<div class="table-responsive">
-		<table class="table">
-			<thead>
-				<tr>
-					<th colspan="4" class="heading-title">My Wishlist</th>
-				</tr>
-			</thead>
-			<tbody>
-                <tr style="display:block">
-                <!-- <td class="col-md-2"></td> -->
-                    <td class="col-md-7">
-                        <div class="product-name" style="display: flex; justify-content: center; font-size:40px;">You have no WishList yet!!!</div>
-                        <img src="{{ asset('frontend/assets/images/products/p1.jpg') }}" alt="imga">
-                    </td>
-                </tr>
-
-                <tr style="display:none">
-					<td class="col-md-2"><img src="{{ asset('frontend/assets/images/products/p1.jpg') }}" alt="imga"></td>
-					<td class="col-md-7">
-						<div class="product-name"><a href="#">Floral Print Buttoned</a></div>
-						<div class="rating">
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star non-rate"></i>
-							<span class="review">( 06 Reviews )</span>
-						</div>
-						<div class="price">
-							$400.00
-							<span>$900.00</span>
-						</div>
-					</td>
-					<td class="col-md-2">
-						<a href="#" class="btn-upper btn btn-primary">Add to cart</a>
-					</td>
-					<td class="col-md-1 close-btn">
-						<a href="#" class=""><i class="fa fa-times"></i></a>
-					</td>
-				</tr>
-				<tr style="display:none">
-					<td class="col-md-2"><img src="{{ asset('frontend/assets/images/products/p2.jpg') }}" alt="phoro"></td>
-					<td class="col-md-7">
-						<div class="product-name"><a href="#">Floral Print Buttoned</a></div>
-						<div class="rating">
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star rate"></i>
-							<i class="fa fa-star non-rate"></i>
-							<span class="review">( 06 Reviews )</span>
-						</div>
-						<div class="price">
-							$450.00
-							<span>$900.00</span>
-						</div>
-					</td>
-					<td class="col-md-2">
-						<a href="#" class="btn-upper btn btn-default">Add to cart</a>
-					</td>
-					<td class="col-md-1 close-btn">
-						<a href="#" class=""><i class="fa fa-times"></i></a>
-					</td>
-				</tr>
-                
-			</tbody>
-		</table>
-	</div>
-</div>			
-    </div><!-- /.row -->
+<div class="container mt-5">
+    <div class="d-flex justify-content-between">
+        <h4>Recommended Jobs</h4> <button class="btn btn-sm btn-outline-dark">Apply all</button>
+    </div>
+    <div class="row mt-2 g-1">
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="text-right"> <small>Full Time</small> </div>
+                <div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/color/96/000000/google-logo.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
+                    <hr> <span>Google Inc</span>
+                    <div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 100, OH, USA</small> </div>
+                    <div class="d-flex justify-content-between mt-3"> <span>$34,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="text-right"> <small>Full Time</small> </div>
+                <div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
+                    <hr> <span>Instagram Inc</span>
+                    <div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 104, OH, USA</small> </div>
+                    <div class="d-flex justify-content-between mt-3"> <span>$38,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="text-right"> <small>Full Time</small> </div>
+                <div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/officel/80/000000/dribbble.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
+                    <hr> <span>Dribbble Inc</span>
+                    <div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 280, OH, USA</small> </div>
+                    <div class="d-flex justify-content-between mt-3"> <span>$24,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="text-right"> <small>Full Time</small> </div>
+                <div class="text-center mt-2 p-3"> <img src="https://img.icons8.com/color/96/000000/behance.png" width="60" /> <span class="d-block font-weight-bold">UX Designer</span>
+                    <hr> <span>Behance Inc</span>
+                    <div class="d-flex flex-row align-items-center justify-content-center"> <i class="fa fa-map-marker"></i> <small class="ml-1">FA 130, OH, USA</small> </div>
+                    <div class="d-flex justify-content-between mt-3"> <span>$30,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
                     <div class="more-info-tab clearfix ">
                         <h3 class="new-product-title pull-left">Populer Products</h3>
@@ -1395,5 +1355,6 @@
             </div>
                 </div>
                     </div>
+</div>
 
 @endsection
