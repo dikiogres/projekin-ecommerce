@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
     <title>Projekin Admin - Dashboard</title>
-    
+
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
 
@@ -32,7 +32,7 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-          @yield('admin')
+            @yield('admin')
         </div>
         <!-- /.content-wrapper -->
 
@@ -52,23 +52,57 @@
     <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
     <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
     <script src="{{ asset('../assets/vendor_components/datatable/datatables.min.js') }}"></script>
-	<script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
+    <script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
 
     <!-- Sunny Admin App -->
     <script src="{{ asset('backend/js/template.js') }}"></script>
     <script src="{{ asset('backend/js/pages/dashboard.js') }}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <!-- Sweet Alert App -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(document).on('click', '#delete', function (e) {
+                e.preventDefault();
+                var link = $(this).attr("href");
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "Delete This Data?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = link
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+
+            });
+
+        });
+
+    </script>
+
     <script>
         @if(Session::has('message'))
-        var type ="{{ Session::get('alert-type', 'info') }}"
-        switch(type){
+        var type = "{{ Session::get('alert-type', 'info') }}"
+        switch (type) {
             case 'info':
                 toastr.info(" {{ Session::get('message') }}");
                 break;
             case 'success':
                 toastr.success(" {{ Session::get('message') }}");
-                break;  
+                break;
             case 'warning':
                 toastr.warning(" {{ Session::get('message') }}");
                 break;
@@ -77,6 +111,7 @@
                 break;
         }
         @endif
+
     </script>
 </body>
 
