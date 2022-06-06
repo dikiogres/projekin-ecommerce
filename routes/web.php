@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
@@ -98,6 +99,12 @@ Route::prefix('category')->group(function(){
     Route::get('/sub/sub/edit/{id}', [SubCategoryController::class, 'subSubCategoryEdit'])->name('subsubcategory.edit');
     Route::post('/sub/update', [SubCategoryController::class, 'subSubCategoryUpdate'])->name('subsubcategory.update');
     Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'subSubCategoryDelete'])->name('subsubcategory.delete');
+});
+
+// Product Routes
+Route::prefix('product')->group(function(){
+    Route::get('/add', [ProductController::class, 'addProduct'])->name('add-product');
+    Route::post('/store', [ProductController::class, 'manageProduct'])->name('manage-product');
 });
 
 // Cart Routes
