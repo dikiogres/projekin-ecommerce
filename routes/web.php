@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\Frontend\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,3 +69,6 @@ Route::get('cart/', [CartController::class, 'index']);
 
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
+
+// Checkout Routes
+Route::get('checkout/', [CheckoutController::class, 'index']);
