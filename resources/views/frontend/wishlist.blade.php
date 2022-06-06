@@ -1,5 +1,5 @@
 @extends('frontend.main-master')
-@section('content');
+@section('content')
 
 <div class="breadcrumb">
 	<div class="container">

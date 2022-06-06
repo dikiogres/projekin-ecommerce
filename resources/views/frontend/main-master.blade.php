@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/rateit.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap-select.min.css') }}">
-    <!-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/cart.css') }}"> -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/faq.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
     <!-- Icons/Glyphs -->

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\FaqController;
 use App\Models\User;
 
 /*
@@ -105,3 +106,6 @@ Route::get('cart/', [CartController::class, 'index']);
 
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
+
+// Wishlist Routes
+Route::get('faq/', [FaqController::class, 'index']);
