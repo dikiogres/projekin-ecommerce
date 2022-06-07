@@ -104,7 +104,16 @@ Route::prefix('category')->group(function(){
 // Product Routes
 Route::prefix('product')->group(function(){
     Route::get('/add', [ProductController::class, 'addProduct'])->name('add-product');
-    Route::post('/store', [ProductController::class, 'manageProduct'])->name('manage-product');
+    Route::get('/manage', [ProductController::class, 'manageProduct'])->name('manage-product');
+    Route::post('/store', [ProductController::class, 'storeProduct'])->name('product-store');
+    Route::get('/edit/{id}', [ProductController::class, 'editProduct'])->name('product.edit');
+    // Route::post('/data/update', [ProductController::class, 'ProductDataUpdate'])->name('product-update');
+    // Route::post('/image/update', [ProductController::class, 'MultiImageUpdate'])->name('update-product-image');
+    // Route::post('/thumbnail/update', [ProductController::class, 'ThambnailImageUpdate'])->name('update-product-thambnail');
+    // Route::get('/multiimg/delete/{id}', [ProductController::class, 'MultiImageDelete'])->name('product.multiimg.delete');
+    Route::get('/inactive/{id}', [ProductController::class, 'ProductInactive'])->name('product.inactive');
+    Route::get('/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
+    Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
 });
 
 // Cart Routes
