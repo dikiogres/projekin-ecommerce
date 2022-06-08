@@ -142,6 +142,8 @@ Route::get('/product/details/{id}/{slug}', [IndexController::class, 'productDeta
 // Cart Routes
 Route::get('cart/', [CartController::class, 'index']);
 
+// Checkout Routes
+Route::get('checkout/', [CheckoutController::class, 'index']);
 
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
