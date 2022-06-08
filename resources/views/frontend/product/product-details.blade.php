@@ -26,27 +26,18 @@
 <div class="body-content outer-top-xs">
     <div class='container'>
         <div class='row single-product'>
-            <div class='col-md-3 sidebar'>
-                <div class="sidebar-module-container">
-                    <div class="home-banner outer-top-n">
-                        <img src="assets/images/banners/LHS-banner.jpg" alt="Image">
-                    </div>
-
-                </div>
-            </div><!-- /.sidebar -->
             <div class='col-md-9'>
                 <div class="detail-block">
                     <div class="row  wow fadeInUp">
-
                         <div class="col-xs-12 col-sm-6 col-md-5 gallery-holder">
                             <div class="product-item-holder size-big single-product-gallery small-gallery">
                                 <div id="owl-single-product">
                                 @foreach($multiImg as $img)
                                     <div class="single-product-gallery-item" id="slide{{ $img->id }}">
                                         <a data-lightbox="image-1" data-title="Gallery"
-                                            href="{{ asset('$img->photo_name') }}">
-                                            <img class="img-responsive" alt="" src=" {{ asset('frontend/assets/images/blank.gif') }}"
-                                                data-echo="assets/images/products/p8.jpg" />
+                                            href="{{ asset($img->photo_name) }}">
+                                            <img class="img-responsive" alt="" src="{{ asset($img->photo_name) }}"
+                                                data-echo="{{ asset($img->photo_name) }}" />
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
                                 @endforeach
@@ -62,8 +53,8 @@
                                             <a class="horizontal-thumb active" data-target="#owl-single-product"
                                                 data-slide="1" href="#slide{{ $img->id }}">
                                                 <img class="img-responsive" width="85" alt=""
-                                                    src="{{ asset('$img->photo_name') }}"
-                                                    data-echo="{{ asset('$img->photo_name') }}" />
+                                                    src="{{ asset($img->photo_name) }}"
+                                                    data-echo="{{ asset($img->photo_name) }}" />
                                             </a>
                                         </div>
                                 @endforeach
