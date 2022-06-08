@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">    
     <meta name="author" content="">
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
@@ -61,16 +61,21 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
+
                     <div class="row">
+
                         <div class="col-md-4">
+
                             <div class="card" style="width: 18rem;">
+
                                 <img src=" " class="card-img-top" alt="..." style="height: 200px; width: 200px;"
                                     id="pimage">
                             </div>
-                        </div><!-- // end col md -->
 
-                        <div class="col-md-6">
+                        </div><!-- // end col md -->
+                        <div class="col-md-4">
                             <ul class="list-group">
                                 <li class="list-group-item">Product Price: <strong class="text-danger">$<span
                                             id="pprice"></span></strong>
@@ -78,16 +83,26 @@
                                 </li>
                                 <li class="list-group-item">Product Code: <strong id="pcode"></strong></li>
                                 <li class="list-group-item">Category: <strong id="pcategory"></strong></li>
+                                <li class="list-group-item">Stock: <span class="badge badge-pill badge-success"
+                                        id="aviable" style="background: green; color: white;"></span>
+                                    <span class="badge badge-pill badge-danger" id="stockout"
+                                        style="background: red; color: white;"></span>
+                                </li>
                             </ul>
+                        </div><!-- // end col md -->
+                        <div class="col-md-4">
                             <input type="hidden" id="product_id">
                             <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()">Add to
                                 Cart</button>
                         </div><!-- // end col md -->
                     </div> <!-- // end row -->
+
                 </div> <!-- // end modal Body -->
+
             </div>
         </div>
     </div>
+    <!-- End Add to Cart Product Modal -->
 
     <script type="text/javascript">
         $.ajaxSetup({
@@ -97,6 +112,7 @@
         })
         // Start Product View with Modal 
         function productView(id) {
+            // alert(id)
             $.ajax({
                 type: 'GET',
                 url: '/product/view/modal/' + id,
@@ -117,12 +133,13 @@
                     } else {
                         $('#pprice').text(data.product.discount_price);
                         $('#oldprice').text(data.product.selling_price);
-                    } // end product price 
+                    } // end prodcut price 
+                    // Start Stock opiton
                 }
             })
 
         }
-        // End Product View with Modal 
+        // Eend Product View with Modal 
         // Start Add To Cart Product 
         function addToCart() {
             var product_name = $('#pname').text();
@@ -135,9 +152,78 @@
                 },
                 url: "/cart/data/store/" + id,
                 success: function (data) {
-                    miniCart()
-                    $('#closeModel').click();
-                    // console.log(data)
+                    // miniCart();
+                    // $('#closeModel').click();
+                    console.log(data)
+                    // Start Message 
+                    // const Toast = Swal.mixin({
+                    //     toast: true,
+                    //     position: 'top-end',
+                    //     icon: 'success',
+                    //     showConfirmButton: false,
+                    //     timer: 3000
+                    // })
+                    // if ($.isEmptyObject(data.error)) {
+                    //     Toast.fire({
+                    //         type: 'success',
+                    //         title: data.success
+                    //     })
+                    // } else {
+                    //     Toast.fire({
+                    //         type: 'error',
+                    //         title: data.error
+                    //     })
+                    // }
+                    // End Message 
+                }
+            })
+        }
+
+        // End Add To Cart Product 
+
+    </script>
+
+    <script type="text/javascript">
+        function miniCart() {
+            $.ajax({
+                type: 'GET',
+                url: '/product/mini/cart',
+                dataType: 'json',
+                success: function (response) {
+                    $('span[id="cartSubTotal"]').text(response.cartTotal);
+                    $('#cartQty').text(response.cartQty);
+                    var miniCart = ""
+                    $.each(response.carts, function (key, value) {
+                        miniCart += `<div class="cart-item product-summary">
+          <div class="row">
+            <div class="col-xs-4">
+              <div class="image"> <a href="detail.html"><img src="/${value.options.image}" alt=""></a> </div>
+            </div>
+            <div class="col-xs-7">
+              <h3 class="name"><a href="index.php?page-detail">${value.name}</a></h3>
+            </div>
+            <div class="col-xs-1 action"> 
+            <button type="submit" id="${value.rowId}" onclick="miniCartRemove(this.id)"><i class="fa fa-trash"></i></button> </div>
+          </div>
+        </div>
+        <!-- /.cart-item -->
+        <div class="clearfix"></div>
+        <hr>`
+                    });
+
+                    $('#miniCart').html(miniCart);
+                }
+            })
+        }
+        miniCart();
+        /// mini cart remove Start 
+        function miniCartRemove(rowId) {
+            $.ajax({
+                type: 'GET',
+                url: '/minicart/product-remove/' + rowId,
+                dataType: 'json',
+                success: function (data) {
+                    miniCart();
                     // Start Message 
                     const Toast = Swal.mixin({
                         toast: true,
@@ -159,11 +245,11 @@
                     }
                     // End Message 
                 }
-            })
+            });
         }
-        // End Add To Cart Product 
-    </script>
+        //  end mini cart remove 
 
+    </script>
 
     <!-- End Add to Cart Product Modal -->
     <!-- JavaScripts placed at the end of the document so the pages load faster -->
@@ -179,6 +265,8 @@
     <script src="{{ asset('frontend/assets/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/scripts.js') }}"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>

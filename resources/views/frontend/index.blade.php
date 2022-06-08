@@ -386,7 +386,7 @@ Home | Projekin
                                                                 <button class="btn btn-primary icon" type="button"
                                                                     title="Add Cart" data-toggle="modal"
                                                                     data-target="#exampleModal" id="{{ $product->id }}"
-                                                                    onclick=""> <i class="fa fa-shopping-cart"></i>
+                                                                    onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i>
                                                                 </button>
 
                                                                 <button class="btn btn-primary cart-btn"

@@ -152,7 +152,10 @@ Route::get('/subsubcategory/product/{subsubcat_id}/{slug}', [IndexController::cl
 Route::get('/product/view/modal/{id}', [IndexController::class, 'productViewAjax']);
 
 // Cart Routes
-Route::get('cart/', [CartController::class, 'index']);
+// Add to Cart Store Data
+Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
+Route::get('/product/mini/cart/', [CartController::class, 'AddMiniCart']);
+Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
 
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
