@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
+use App\Http\Controllers\Frontend\LanguageController;
 use App\Models\User;
 
 /*
@@ -130,6 +131,10 @@ Route::prefix('slider')->group(function(){
     Route::get('/active/{id}', [SliderController::class, 'sliderActive'])->name('slider.active');
 });
 
+
+/// Multi Language Routes ////
+Route::get('/language/indonesia', [LanguageController::class, 'indonesia'])->name('indonesia.language');
+Route::get('/language/english', [LanguageController::class, 'english'])->name('english.language');
 
 // Cart Routes
 Route::get('cart/', [CartController::class, 'index']);
