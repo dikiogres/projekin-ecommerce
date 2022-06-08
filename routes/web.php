@@ -136,6 +136,9 @@ Route::prefix('slider')->group(function(){
 Route::get('/language/indonesia', [LanguageController::class, 'indonesia'])->name('indonesia.language');
 Route::get('/language/english', [LanguageController::class, 'english'])->name('english.language');
 
+// Frontend Product Details Page url 
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'productDetails']);
+
 // Cart Routes
 Route::get('cart/', [CartController::class, 'index']);
 

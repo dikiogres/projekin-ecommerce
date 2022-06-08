@@ -185,12 +185,12 @@
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw"> <a href="{{ url('/') }}" data-hover="dropdown"
                                         class="dropdown-toggle" data-toggle="dropdown">
-                                        @if(session()->get('language') == 'indonesia') 
-                                        Beranda 
-                                        @else 
-                                        Home 
+                                        @if(session()->get('language') == 'indonesia')
+                                        Beranda
+                                        @else
+                                        Home
                                         @endif
-                                </a> </li>
+                                    </a> </li>
 
                                 @php
                                 $categories = App\Models\Category::orderBy('category_name_en','ASC')->get();
@@ -236,12 +236,12 @@
                                                         @foreach($subsubcategories as $subsubcategory)
                                                         <ul class="links">
                                                             <li><a href="#">
-                                                                @if(session()->get('language') == 'indonesia') 
-                                                                {{ $subsubcategory->subsubcategory_name_ind }} 
-                                                                @else 
-                                                                {{ $subsubcategory->subsubcategory_name_en }} 
-                                                                @endif
-                                                            </a></li>
+                                                                    @if(session()->get('language') == 'indonesia')
+                                                                    {{ $subsubcategory->subsubcategory_name_ind }}
+                                                                    @else
+                                                                    {{ $subsubcategory->subsubcategory_name_en }}
+                                                                    @endif
+                                                                </a></li>
                                                         </ul>
                                                         @endforeach
                                                     </div>
