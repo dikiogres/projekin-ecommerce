@@ -26,6 +26,7 @@
     <!-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/cart.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/wishlist.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/checkout.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/faq.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
     <!-- Icons/Glyphs -->

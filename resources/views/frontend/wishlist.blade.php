@@ -1,5 +1,5 @@
 @extends('frontend.main-master')
-@section('content');
+@section('content')
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between">
