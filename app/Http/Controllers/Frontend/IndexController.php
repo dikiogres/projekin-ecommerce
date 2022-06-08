@@ -130,4 +130,12 @@ class IndexController extends Controller
         $breadsubsubcat = SubSubCategory::with(['category', 'subcategory'])->where('id', $subsubcat_id)->get();
         return view('frontend.product.sub-subcategory-view', compact('products', 'categories', 'breadsubsubcat'));
     }
+
+    public function productViewAjax($id){
+		$product = Product::with('category')->findOrFail($id);
+
+		return response()->json(array(
+			'product' => $product,
+		));
+	} // end method 
 }
