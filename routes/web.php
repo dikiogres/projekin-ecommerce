@@ -23,35 +23,32 @@ use App\Models\User;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
+	Route::get('/login', [AdminController::class, 'loginForm']);
+	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
 });
+
+Route::middleware(['auth:admin'])->group(function(){ 
+    Route::middleware([
+        'auth:sanctum,admin',
+        config('jetstream.auth_session'),
+        'verified'
+    ])->group(function () {
+        Route::get('/admin/dashboard', function () {
+            return view('admin.index');
+        })->name('dashboard')->middleware('auth:admin');
+    });
 
 // Admin Routes
-Route::middleware('admin:admin')->group(function(){
-    Route::get('admin/login', [AdminController::class, 'loginForm']);
-    Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
-});
-
-Route::middleware([
-    'auth:sanctum,admin',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.index');
-    })->name('dashboard')->middleware('auth:admin');
-});
-
 Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 Route::get('admin/profile', [AdminProfileController::class, 'adminProfile'])->name('admin.profile');
 Route::get('admin/profile/edit', [AdminProfileController::class, 'adminProfileEdit'])->name('admin.profile.edit');
 Route::post('admin/profile/store', [AdminProfileController::class, 'adminProfileStore'])->name('admin.profile.store');
 Route::get('admin/change/password', [AdminProfileController::class, 'adminChangePassword'])->name('admin.change.password');
 Route::post('update/change/password', [AdminProfileController::class, 'adminUpdateChangePassword'])->name('update.change.password');
+});
 
-// User Routes
+
 Route::middleware([
     'auth:sanctum,web',
     config('jetstream.auth_session'),
@@ -63,12 +60,14 @@ Route::middleware([
         return view('dashboard', compact('user'));
     })->name('dashboard');
 });
+// User Routes
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');
 Route::get('/user/profile', [IndexController::class, 'userProfile'])->name('user.profile');
 Route::post('/user/profile/store', [IndexController::class, 'userProfileStore'])->name('user.profile.store');
 Route::get('/user/change/password', [IndexController::class, 'userChangePassword'])->name('user.change.password');
 Route::post('/user/update/password', [IndexController::class, 'userUpdateChangePassword'])->name('user.update.password');
+
 
 // Admin Brand Route
 Route::prefix('brand')->group(function(){
@@ -78,6 +77,7 @@ Route::prefix('brand')->group(function(){
     Route::post('/update', [BrandController::class, 'brandUpdate'])->name('brand.update');
     Route::get('/delete/{id}', [BrandController::class, 'brandDelete'])->name('brand.delete');
 });
+
 
 // Admin Category all Routes  
 Route::prefix('category')->group(function(){
@@ -102,6 +102,7 @@ Route::prefix('category')->group(function(){
     Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'subSubCategoryDelete'])->name('subsubcategory.delete');
 });
 
+
 // Product Routes
 Route::prefix('product')->group(function(){
     Route::get('/add', [ProductController::class, 'addProduct'])->name('add-product');
@@ -117,6 +118,7 @@ Route::prefix('product')->group(function(){
     Route::get('/delete/{id}', [ProductController::class, 'productDelete'])->name('product.delete');
 });
 
+
 // Product Routes
 Route::prefix('slider')->group(function(){
     Route::get('/view', [SliderController::class, 'sliderView'])->name('manage-slider');
@@ -128,8 +130,10 @@ Route::prefix('slider')->group(function(){
     Route::get('/active/{id}', [SliderController::class, 'sliderActive'])->name('slider.active');
 });
 
+
 // Cart Routes
 Route::get('cart/', [CartController::class, 'index']);
+
 
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
