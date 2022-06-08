@@ -22,7 +22,12 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/rateit.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap-select.min.css') }}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/history.css') }}">
+=======
+    <!-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/cart.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+>>>>>>> f736892b80e2272ad8a71163ad169c48f8e82c50
 
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.css') }}">
@@ -63,7 +68,27 @@
     <script src="{{ asset('frontend/assets/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/scripts.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
+    <script>
+        @if(Session::has('message'))
+        var type ="{{ Session::get('alert-type', 'info') }}"
+        switch(type){
+            case 'info':
+                toastr.info(" {{ Session::get('message') }}");
+                break;
+            case 'success':
+                toastr.success(" {{ Session::get('message') }}");
+                break;  
+            case 'warning':
+                toastr.warning(" {{ Session::get('message') }}");
+                break;
+            case 'error':
+                toastr.error(" {{ Session::get('message') }}");
+                break;
+        }
+        @endif
+    </script>
 </body>
 
 </html>
