@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\LanguageController;
+use App\Http\Controllers\Frontend\HistoryOrderController;
 use App\Models\User;
 
 /*
@@ -142,6 +143,9 @@ Route::get('/product/details/{id}/{slug}', [IndexController::class, 'productDeta
 
 // Cart Routes
 Route::get('cart/', [CartController::class, 'index']);
+
+//History-order Routes
+Route::get('history/', [HistoryOrderController::class, 'index']);
 
 // Checkout Routes
 Route::get('checkout/', [CheckoutController::class, 'index']);
