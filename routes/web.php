@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
@@ -103,6 +104,21 @@ Route::prefix('category')->group(function(){
     Route::get('/sub/sub/edit/{id}', [SubCategoryController::class, 'subSubCategoryEdit'])->name('subsubcategory.edit');
     Route::post('/sub/update', [SubCategoryController::class, 'subSubCategoryUpdate'])->name('subsubcategory.update');
     Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'subSubCategoryDelete'])->name('subsubcategory.delete');
+});
+
+// Product Routes
+Route::prefix('product')->group(function(){
+    Route::get('/add', [ProductController::class, 'addProduct'])->name('add-product');
+    Route::get('/manage', [ProductController::class, 'manageProduct'])->name('manage-product');
+    Route::post('/store', [ProductController::class, 'storeProduct'])->name('product-store');
+    Route::get('/edit/{id}', [ProductController::class, 'editProduct'])->name('product.edit');
+    Route::post('/data/update', [ProductController::class, 'productDataUpdate'])->name('product-update');
+    Route::post('/image/update', [ProductController::class, 'multiImageUpdate'])->name('update-product-image');
+    Route::post('/thumbnail/update', [ProductController::class, 'thumbnailImageUpdate'])->name('update-product-thumbnail');
+    Route::get('/multiimg/delete/{id}', [ProductController::class, 'multiImageDelete'])->name('product.multiimg.delete');
+    Route::get('/inactive/{id}', [ProductController::class, 'productInactive'])->name('product.inactive');
+    Route::get('/active/{id}', [ProductController::class, 'productActive'])->name('product.active');
+    Route::get('/delete/{id}', [ProductController::class, 'productDelete'])->name('product.delete');
 });
 
 // Cart Routes
