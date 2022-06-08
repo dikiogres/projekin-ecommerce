@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\HistoryOrderController;
+use App\Http\Controllers\FaqController;
 use App\Models\User;
 
 /*
@@ -152,3 +153,6 @@ Route::get('checkout/', [CheckoutController::class, 'index']);
 
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
+
+// Faq Routes
+Route::get('faq/', [FaqController::class, 'index']);
