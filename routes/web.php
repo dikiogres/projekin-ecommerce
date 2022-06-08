@@ -6,10 +6,13 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
-use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\LanguageController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,35 +24,32 @@ use App\Http\Controllers\Frontend\CheckoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
+	Route::get('/login', [AdminController::class, 'loginForm']);
+	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
 });
+
+Route::middleware(['auth:admin'])->group(function(){ 
+    Route::middleware([
+        'auth:sanctum,admin',
+        config('jetstream.auth_session'),
+        'verified'
+    ])->group(function () {
+        Route::get('/admin/dashboard', function () {
+            return view('admin.index');
+        })->name('dashboard')->middleware('auth:admin');
+    });
 
 // Admin Routes
-Route::middleware('admin:admin')->group(function(){
-    Route::get('admin/login', [AdminController::class, 'loginForm']);
-    Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
-});
-
-Route::middleware([
-    'auth:sanctum,admin',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.index');
-    })->name('dashboard')->middleware('auth:admin');
-});
-
 Route::get('admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 Route::get('admin/profile', [AdminProfileController::class, 'adminProfile'])->name('admin.profile');
 Route::get('admin/profile/edit', [AdminProfileController::class, 'adminProfileEdit'])->name('admin.profile.edit');
 Route::post('admin/profile/store', [AdminProfileController::class, 'adminProfileStore'])->name('admin.profile.store');
 Route::get('admin/change/password', [AdminProfileController::class, 'adminChangePassword'])->name('admin.change.password');
 Route::post('update/change/password', [AdminProfileController::class, 'adminUpdateChangePassword'])->name('update.change.password');
+});
 
-// User Routes
+
 Route::middleware([
     'auth:sanctum,web',
     config('jetstream.auth_session'),
@@ -61,12 +61,14 @@ Route::middleware([
         return view('dashboard', compact('user'));
     })->name('dashboard');
 });
+// User Routes
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');
 Route::get('/user/profile', [IndexController::class, 'userProfile'])->name('user.profile');
 Route::post('/user/profile/store', [IndexController::class, 'userProfileStore'])->name('user.profile.store');
 Route::get('/user/change/password', [IndexController::class, 'userChangePassword'])->name('user.change.password');
 Route::post('/user/update/password', [IndexController::class, 'userUpdateChangePassword'])->name('user.update.password');
+
 
 // Admin Brand Route
 Route::prefix('brand')->group(function(){
@@ -76,6 +78,7 @@ Route::prefix('brand')->group(function(){
     Route::post('/update', [BrandController::class, 'brandUpdate'])->name('brand.update');
     Route::get('/delete/{id}', [BrandController::class, 'brandDelete'])->name('brand.delete');
 });
+
 
 // Admin Category all Routes  
 Route::prefix('category')->group(function(){
@@ -100,13 +103,45 @@ Route::prefix('category')->group(function(){
     Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'subSubCategoryDelete'])->name('subsubcategory.delete');
 });
 
+
+// Product Routes
+Route::prefix('product')->group(function(){
+    Route::get('/add', [ProductController::class, 'addProduct'])->name('add-product');
+    Route::get('/manage', [ProductController::class, 'manageProduct'])->name('manage-product');
+    Route::post('/store', [ProductController::class, 'storeProduct'])->name('product-store');
+    Route::get('/edit/{id}', [ProductController::class, 'editProduct'])->name('product.edit');
+    Route::post('/data/update', [ProductController::class, 'productDataUpdate'])->name('product-update');
+    Route::post('/image/update', [ProductController::class, 'multiImageUpdate'])->name('update-product-image');
+    Route::post('/thumbnail/update', [ProductController::class, 'thumbnailImageUpdate'])->name('update-product-thumbnail');
+    Route::get('/multiimg/delete/{id}', [ProductController::class, 'multiImageDelete'])->name('product.multiimg.delete');
+    Route::get('/inactive/{id}', [ProductController::class, 'productInactive'])->name('product.inactive');
+    Route::get('/active/{id}', [ProductController::class, 'productActive'])->name('product.active');
+    Route::get('/delete/{id}', [ProductController::class, 'productDelete'])->name('product.delete');
+});
+
+
+// Product Routes
+Route::prefix('slider')->group(function(){
+    Route::get('/view', [SliderController::class, 'sliderView'])->name('manage-slider');
+    Route::post('/store', [SliderController::class, 'sliderStore'])->name('slider.store');
+    Route::get('/edit/{id}', [SliderController::class, 'sliderEdit'])->name('slider.edit');
+    Route::post('/update', [SliderController::class, 'sliderUpdate'])->name('slider.update');
+    Route::get('/delete/{id}', [SliderController::class, 'sliderDelete'])->name('slider.delete');
+    Route::get('/inactive/{id}', [SliderController::class, 'sliderInactive'])->name('slider.inactive');
+    Route::get('/active/{id}', [SliderController::class, 'sliderActive'])->name('slider.active');
+});
+
+
+/// Multi Language Routes ////
+Route::get('/language/indonesia', [LanguageController::class, 'indonesia'])->name('indonesia.language');
+Route::get('/language/english', [LanguageController::class, 'english'])->name('english.language');
+
+// Frontend Product Details Page url 
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'productDetails']);
+
 // Cart Routes
 Route::get('cart/', [CartController::class, 'index']);
 
+
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
-
-//History-order Routes
-Route::get('history/', [HistoryOrderController::class, 'index']);
-// Checkout Routes
-Route::get('checkout/', [CheckoutController::class, 'index']);
