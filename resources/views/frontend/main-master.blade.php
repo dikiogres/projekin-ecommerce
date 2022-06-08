@@ -23,11 +23,15 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/rateit.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap-select.min.css') }}">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/history.css') }}">
 =======
     <!-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/cart.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 >>>>>>> f736892b80e2272ad8a71163ad169c48f8e82c50
+=======
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/checkout.css') }}">
+>>>>>>> main-dev-checkout
 
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.css') }}">

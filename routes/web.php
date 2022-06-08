@@ -9,7 +9,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
-use App\Models\User;
+use App\Http\Controllers\Frontend\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,5 +106,10 @@ Route::get('cart/', [CartController::class, 'index']);
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index']);
 
+<<<<<<< HEAD
 //History-order Routes
 Route::get('history/', [HistoryOrderController::class, 'index']);
+=======
+// Checkout Routes
+Route::get('checkout/', [CheckoutController::class, 'index']);
+>>>>>>> main-dev-checkout
