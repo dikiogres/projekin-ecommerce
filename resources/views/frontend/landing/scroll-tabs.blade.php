@@ -1,4 +1,4 @@
-<!-- ============================================== SCROLL TABS ============================================== -->
+<!-- ============================================== SCROLL TABS============================================== -->
 <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
                     <div class="more-info-tab clearfix ">
                         <h3 class="new-product-title pull-left">New Products</h3>
@@ -88,22 +88,22 @@
                                                                 <button class="btn btn-primary icon" type="button"
                                                                     title="Add Cart" data-toggle="modal"
                                                                     data-target="#exampleModal" id="{{ $product->id }}"
-                                                                    onclick=""> <i class="fa fa-shopping-cart"></i>
-                                                                </button>
+                                                                    onclick="productView(this.id)"> <i
+                                                                        class="fa fa-shopping-cart"></i> </button>
 
                                                                 <button class="btn btn-primary cart-btn"
                                                                     type="button">Add to cart</button>
                                                             </li>
 
                                                             <button class="btn btn-primary icon" type="button"
-                                                                title="Wishlist" id="{{ $product->id }}" onclick=""> <i
+                                                                title="Wishlist" id="{{ $product->id }}"
+                                                                onclick="addToWishList(this.id)"> <i
                                                                     class="fa fa-heart"></i> </button>
 
                                                             <li class="lnk"> <a data-toggle="tooltip"
                                                                     class="add-to-cart" href="detail.html"
                                                                     title="Compare"> <i class="fa fa-signal"
-                                                                        aria-hidden="true"></i> </a>
-                                                            </li>
+                                                                        aria-hidden="true"></i> </a> </li>
                                                         </ul>
                                                     </div>
                                                     <!-- /.action -->
@@ -111,6 +111,7 @@
                                                 <!-- /.cart -->
                                             </div>
                                             <!-- /.product -->
+
                                         </div>
                                         <!-- /.products -->
                                     </div>
@@ -192,7 +193,7 @@
                                                                 <button class="btn btn-primary icon" type="button"
                                                                     title="Add Cart" data-toggle="modal"
                                                                     data-target="#exampleModal" id="{{ $product->id }}"
-                                                                    onclick=""> <i class="fa fa-shopping-cart"></i>
+                                                                    onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i>
                                                                 </button>
 
                                                                 <button class="btn btn-primary cart-btn"
@@ -235,4 +236,4 @@
                     </div>
                     <!-- /.tab-content -->
                 </div>
-                <!-- ============================================== SCROLL TABS : END ============================================== -->
+<!-- ============================================== SCROLL TABS : END ============================================== -->
