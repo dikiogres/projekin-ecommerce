@@ -16,6 +16,9 @@
                         <li><a href="/wishlist"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                         <li><a href="/cart"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="/checkout"><i class="icon fa fa-check"></i>Checkout</a></li>
+                        <li><a href="{{ route('wishlist') }}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+                        <li><a href="{{ route('cart') }}"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+                        <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
 
                         @auth
                         <li><a href="{{ route('login') }}"><i class="icon fa fa-lock"></i>User Profile</a></li>
@@ -29,14 +32,6 @@
 
                 <div class="cnt-block">
                     <ul class="list-unstyled list-inline">
-                        <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown"
-                                data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">INR</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li>
 
                         <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown"
                                 data-toggle="dropdown"><span class="value">
@@ -111,40 +106,32 @@
                 <!-- /.top-search-holder -->
 
                 <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
-                    <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+                    <!-- ===== === SHOPPING CART DROPDOWN ===== == -->
 
                     <div class="dropdown dropdown-cart"> <a href="#" class="dropdown-toggle lnk-cart"
                             data-toggle="dropdown">
                             <div class="items-cart-inner">
                                 <div class="basket"> <i class="glyphicon glyphicon-shopping-cart"></i> </div>
-                                <div class="basket-item-count"><span class="count">2</span></div>
-                                <div class="total-price-basket"> <span class="lbl">cart -</span> <span
-                                        class="total-price"> <span class="sign">$</span><span
-                                            class="value">600.00</span> </span> </div>
+                                <div class="basket-item-count"><span class="count" id="cartQty"> </span></div>
+                                <div class="total-price-basket"> <span class="lbl">cart -</span>
+                                    <span class="total-price"> <span class="sign">$</span>
+                                        <span class="value" id="cartSubTotal"> </span> </span> </div>
                             </div>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <div class="cart-item product-summary">
-                                    <div class="row">
-                                        <div class="col-xs-4">
-                                            <div class="image"> <a href="detail.html"><img
-                                                        src="{{ asset('frontend/assets/images/cart.jpg') }}" alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-7">
-                                            <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
-                                            <div class="price">$600.00</div>
-                                        </div>
-                                        <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
-                                    </div>
+                                <!--   // Mini Cart Start with Ajax -->
+
+                                <div id="miniCart">
+
                                 </div>
-                                <!-- /.cart-item -->
-                                <div class="clearfix"></div>
-                                <hr>
+
+                                <!--   // End Mini Cart Start with Ajax -->
+
+
                                 <div class="clearfix cart-total">
-                                    <div class="pull-right"> <span class="text">Sub Total :</span><span
-                                            class='price'>$600.00</span> </div>
+                                    <div class="pull-right"> <span class="text">Sub Total :</span>
+                                        <span class='price' id="cartSubTotal"> </span> </div>
                                     <div class="clearfix"></div>
                                     <a href="/checkout"
                                         class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
@@ -157,14 +144,15 @@
                     </div>
                     <!-- /.dropdown-cart -->
 
-                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
+                    <!-- == === SHOPPING CART DROPDOWN : END=== === -->
                 </div>
-                <!-- /.top-cart-row -->
             </div>
-            <!-- /.row -->
-
+            <!-- /.top-cart-row -->
         </div>
-        <!-- /.container -->
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
 
     </div>
     <!-- /.main-header -->

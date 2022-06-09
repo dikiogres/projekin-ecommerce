@@ -9,7 +9,9 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Slider;
 use App\Models\Product;
-use App\Models\MultiImg; 
+use App\Models\SubCategory;
+use App\Models\SubSubCategory;
+use App\Models\MultiImg;
 use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
@@ -20,9 +22,8 @@ class IndexController extends Controller
         $categories = Category::orderBy('category_name_en', 'ASC')->get();
         $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->limit(3)->get();
         $products = Product::where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();
-        $hot_deals = Product::where('hot_deals', 1)->where('discount_price','!=',NULL)->orderBy('id', 'DESC')->limit(3)->get();
-        $special_offer = Product::where('special_offer', 1)->orderBy('id', 'DESC')->limit(6)->get();
-        return view('frontend.index', compact('categories', 'sliders', 'products', 'hot_deals', 'special_offer'));
+        $hot_deals = Product::where('hot_deals', 1)->where('discount_price', '!=', NULL)->orderBy('id', 'DESC')->limit(3)->get();
+        return view('frontend.index', compact('categories', 'sliders', 'products', 'hot_deals'));
     }
 
     public function userLogout()
@@ -92,7 +93,49 @@ class IndexController extends Controller
     public function productDetails($id, $slug)
     {
         $product = Product::findOrFail($id);
-        $multiImg = MultiImg::where('product_id',$id)->get();
+        $multiImg = MultiImg::where('product_id', $id)->get();
         return view('frontend.product.product-details', compact('product', 'multiImg'));
     }
+
+    public function tagWiseProduct($tag)
+    {
+        $products = Product::where('status', 1)->where('product_tags_en', $tag)->where('product_tags_ind', $tag)->orderBy('id', 'DESC')->paginate(3);
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        return view('frontend.tags.tags-view', compact('products', 'categories'));
+    }
+
+    public function subCatWiseProduct(Request $request, $subcat_id, $slug)
+    {
+        $products = Product::where('status', 1)->where('subcategory_id', $subcat_id)->orderBy('id', 'DESC')->paginate(3);
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+
+        $breadsubcat = SubCategory::with(['category'])->where('id', $subcat_id)->get();
+        ///  Load More Product with Ajax 
+        if ($request->ajax()) {
+            $grid_view = view('frontend.product.grid-view-product', compact('products'))->render();
+
+            $list_view = view('frontend.product.list-view-product', compact('products'))->render();
+            return response()->json(['grid_view' => $grid_view, 'list_view', $list_view]);
+        }
+        ///  End Load More Product with Ajax 
+
+        return view('frontend.product.subcategory-view', compact('products', 'categories', 'breadsubcat'));
+    }
+
+    // Sub-Subcategory wise data
+    public function subSubCatWiseProduct($subsubcat_id, $slug)
+    {
+        $products = Product::where('status', 1)->where('subsubcategory_id', $subsubcat_id)->orderBy('id', 'DESC')->paginate(6);
+        $categories = Category::orderBy('category_name_en', 'ASC')->get();
+        $breadsubsubcat = SubSubCategory::with(['category', 'subcategory'])->where('id', $subsubcat_id)->get();
+        return view('frontend.product.sub-subcategory-view', compact('products', 'categories', 'breadsubsubcat'));
+    }
+
+    public function productViewAjax($id){
+		$product = Product::with('category')->findOrFail($id);
+
+		return response()->json(array(
+			'product' => $product,
+		));
+	} // end method 
 }

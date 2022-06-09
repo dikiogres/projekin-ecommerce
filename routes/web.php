@@ -142,9 +142,10 @@ Route::get('/language/english', [LanguageController::class, 'english'])->name('e
 // Frontend Product Details Page url 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'productDetails']);
 
-// Cart Routes
-Route::get('cart/', [CartController::class, 'index']);
+// Frontend Product Tags Page
+Route::get('/product/tag/{tag}', [IndexController::class, 'tagWiseProduct']);
 
+<<<<<<< HEAD
 //History-order Routes
 Route::get('history/', [HistoryOrderController::class, 'index']);
 
@@ -156,3 +157,23 @@ Route::get('wishlist/', [WishlistController::class, 'index']);
 
 // Faq Routes
 Route::get('faq/', [FaqController::class, 'index']);
+=======
+// Frontend SubCategory wise Data
+Route::get('/subcategory/product/{subcat_id}/{slug}', [IndexController::class, 'subCatWiseProduct']);
+
+// Frontend Sub-SubCategory wise Data
+Route::get('/subsubcategory/product/{subsubcat_id}/{slug}', [IndexController::class, 'subSubCatWiseProduct']);
+
+// Product View Modal with Ajax
+Route::get('/product/view/modal/{id}', [IndexController::class, 'productViewAjax']);
+
+// Cart Routes
+// Add to Cart Store Data
+Route::get('cart/', [CartController::class, 'index'])->name('cart');
+Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
+Route::get('/product/mini/cart/', [CartController::class, 'AddMiniCart']);
+Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
+
+// Wishlist Routes
+Route::get('wishlist/', [WishlistController::class, 'index'])->name('wishlist');
+>>>>>>> eea36e7295f47211b42d5cea8afef35c53bbcc23
