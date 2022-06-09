@@ -15,6 +15,7 @@
                 <!-- ============================================== PRODUCT TAGS ============================================== -->
                 @include('frontend.landing.sidebar.product-tags')
                 <!-- ============================================== PRODUCT TAGS : END ============================================== -->
+                
 
 
                 <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}"
