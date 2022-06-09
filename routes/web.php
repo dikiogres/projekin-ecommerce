@@ -145,7 +145,6 @@ Route::get('/product/details/{id}/{slug}', [IndexController::class, 'productDeta
 // Frontend Product Tags Page
 Route::get('/product/tag/{tag}', [IndexController::class, 'tagWiseProduct']);
 
-<<<<<<< HEAD
 //History-order Routes
 Route::get('history/', [HistoryOrderController::class, 'index']);
 
@@ -157,7 +156,6 @@ Route::get('wishlist/', [WishlistController::class, 'index']);
 
 // Faq Routes
 Route::get('faq/', [FaqController::class, 'index']);
-=======
 // Frontend SubCategory wise Data
 Route::get('/subcategory/product/{subcat_id}/{slug}', [IndexController::class, 'subCatWiseProduct']);
 
@@ -176,4 +174,3 @@ Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMi
 
 // Wishlist Routes
 Route::get('wishlist/', [WishlistController::class, 'index'])->name('wishlist');
->>>>>>> eea36e7295f47211b42d5cea8afef35c53bbcc23
