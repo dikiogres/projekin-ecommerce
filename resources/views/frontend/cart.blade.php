@@ -1,5 +1,6 @@
 @extends('frontend.main-master')
 @section('content');
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/cart.css') }}">
 
 <div class="body-content outer-top-xs">
     <div class="breadcrumb">
